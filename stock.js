@@ -58,5 +58,12 @@ const productosStock =
 ];
 
 
+const desestructurar = (productosStock) =>{
+   
+    const [id, nombre, text, precio, talle, cantidad] = productosStock ;
+        console.log(...productosStock);
 
-
+        
+    }
+    
+    desestructurar(productosStock);

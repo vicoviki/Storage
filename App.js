@@ -48,7 +48,7 @@ function agregarAlCarrito(id) {
     let producto = productosStock.find(producto => producto.id === id);
     // console.log(producto);
 
-    let productoEnCarrito = carrito.find(producto => producto.id === id);
+    let productoEnCarrito = carrito.find(producto => producto.id === id );
 
     if (productoEnCarrito) {
 
@@ -111,11 +111,15 @@ pintarCarrito();
 function eliminarProductoCarrito(id){
     carrito[id].cantidad--;
 
-    if(carrito[id].cantidad === 0){
+   carrito[id].cantidad === 0 && carrito.splice(id,1);
 
-        carrito.splice(id,1);
-        alert('El producto fue eliminado con exito');
-    }
+   alert('El producto fue eliminado con exito');
+   
+    // if(carrito[id].cantidad === 0){
+
+    //     carrito.splice(id,1);
+    //     alert('El producto fue eliminado con exito');
+    // }
 
    
     pintarCarrito();
@@ -131,7 +135,7 @@ function calcularTotal(){
         total += producto.precio * producto.cantidad;
     })
 
-    console.log(total);
+    // console.log(total);
 
     const t = document.getElementById('total');
 
@@ -140,10 +144,10 @@ function calcularTotal(){
     
  localStorage.setItem('carrito', JSON.stringify(carrito));
     
-// const obtenerCarritoStorage = () => {
-//     const carritoStorage = JSON.parse(localStorage.getItem('carrito'));
-//     return carritoStorage;
-// };
-//     obtenerCarritoStorage();
+
 } 
+
+
+
+
 
